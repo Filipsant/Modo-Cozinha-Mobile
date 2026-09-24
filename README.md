@@ -41,4 +41,7 @@ Código organizado por funcionalidade em 6 camadas (`app → screens → widgets
 com as regras de dependência garantidas pelo ESLint e verificadas no CI.
 
 - [docs/ARQUITETURA.md](docs/ARQUITETURA.md): camadas, navegação, estado, pastas, testes e como criar um módulo
+- [docs/GUIA-DOS-ARQUIVOS.md](docs/GUIA-DOS-ARQUIVOS.md): mapa simples de onde cada coisa mora
+- [docs/MODELOS-DE-CODIGO.md](docs/MODELOS-DE-CODIGO.md): versão técnica, com modelos de código testados para as
+  próximas etapas
 - [docs/decisions/](docs/decisions/README.md): registros das decisões técnicas

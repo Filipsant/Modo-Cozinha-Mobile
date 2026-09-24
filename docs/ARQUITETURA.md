@@ -1,7 +1,9 @@
 # Arquitetura: Modo Cozinha Mobile
 
 Este documento explica **onde cada coisa mora e por quê** na versão mobile do Modo Cozinha. Ele adapta a seção
-"Arquitetura: Modo Cozinha" do roadmap (feita para a web) para React Native com Expo.
+"Arquitetura: Modo Cozinha" do roadmap (feita para a web) para React Native com Expo. Para um mapa simples
+de cada arquivo, veja o [GUIA-DOS-ARQUIVOS.md](GUIA-DOS-ARQUIVOS.md); para modelos de código testados, o
+[MODELOS-DE-CODIGO.md](MODELOS-DE-CODIGO.md).
 
 ## 1. Visão geral
 
