@@ -13,11 +13,7 @@ export { Paragraph, type ParagraphProps } from './Paragraph';
 export { Screen, type ScreenProps } from './Screen';
 export { SearchInput, type SearchInputProps } from './SearchInput';
 export { SectionHeader, type SectionHeaderProps } from './SectionHeader';
-export {
-  SegmentedControl,
-  type SegmentedControlProps,
-  type SegmentedOption,
-} from './SegmentedControl';
+export { SegmentedControl, type SegmentedControlProps, type SegmentedOption } from './SegmentedControl';
 export { SkeletonBlock, SkeletonCard, type SkeletonBlockProps } from './Skeleton';
 export { Tag, type TagProps } from './Tag';
 export { Title, type TitleProps } from './Title';

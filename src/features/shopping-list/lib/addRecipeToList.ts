@@ -29,9 +29,42 @@ export interface ShoppingItem {
  * O que não está aqui é modo de preparo ("beaten", "chopped") e é ignorado na soma.
  */
 const COUNT_WORDS = new Set([
-  'bag', 'bottle', 'box', 'bulb', 'bunch', 'can', 'clove', 'dash', 'drop', 'fillet', 'handful', 'head',
-  'jar', 'knob', 'large', 'leaf', 'leave', 'medium', 'pack', 'package', 'packet', 'piece', 'pinch', 'pod',
-  'rasher', 'shank', 'slice', 'small', 'sprig', 'stalk', 'stick', 'strip', 'tin', 'tub', 'whole', 'yolk',
+  'bag',
+  'bottle',
+  'box',
+  'bulb',
+  'bunch',
+  'can',
+  'clove',
+  'dash',
+  'drop',
+  'fillet',
+  'handful',
+  'head',
+  'jar',
+  'knob',
+  'large',
+  'leaf',
+  'leave',
+  'medium',
+  'pack',
+  'package',
+  'packet',
+  'piece',
+  'pinch',
+  'pod',
+  'rasher',
+  'shank',
+  'slice',
+  'small',
+  'sprig',
+  'stalk',
+  'stick',
+  'strip',
+  'tin',
+  'tub',
+  'whole',
+  'yolk',
 ]);
 
 function countWordOf(rest: string): string {
@@ -54,11 +87,25 @@ function toItem(name: string, measure: string, factor: number, source: ShoppingI
   const common = { name, checked: false, sources: [source] };
 
   if (base.quantity === null) {
-    return { ...common, key: `${normalized}|texto:${base.rest.toLowerCase()}`, quantity: null, quantityMax: null, unit: null, label: base.rest };
+    return {
+      ...common,
+      key: `${normalized}|texto:${base.rest.toLowerCase()}`,
+      quantity: null,
+      quantityMax: null,
+      unit: null,
+      label: base.rest,
+    };
   }
 
   if (base.unit === 'g' || base.unit === 'ml') {
-    return { ...common, key: `${normalized}|${base.unit}`, quantity: base.quantity, quantityMax: base.quantityMax, unit: base.unit, label: '' };
+    return {
+      ...common,
+      key: `${normalized}|${base.unit}`,
+      quantity: base.quantity,
+      quantityMax: base.quantityMax,
+      unit: base.unit,
+      label: '',
+    };
   }
 
   const countWord = countWordOf(base.rest);

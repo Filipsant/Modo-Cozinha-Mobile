@@ -20,7 +20,9 @@ describe('favoritesStore', () => {
   });
 
   it('guarda só o resumo, mesmo recebendo a receita completa', () => {
-    useFavoritesStore.getState().add({ ...recipe, instructions: 'muito texto', ingredients: [] } as typeof recipe);
+    useFavoritesStore
+      .getState()
+      .add({ ...recipe, instructions: 'muito texto', ingredients: [] } as typeof recipe);
 
     expect(useFavoritesStore.getState().items[0]).not.toHaveProperty('instructions');
   });

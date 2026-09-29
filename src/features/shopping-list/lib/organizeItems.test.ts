@@ -16,7 +16,12 @@ function item(key: string, checked: boolean, sourceIds: string[]): ShoppingItem 
 
 describe('orderItems', () => {
   it('coloca os comprados no fim, mantendo a ordem', () => {
-    const items = [item('a', true, ['1']), item('b', false, ['1']), item('c', true, ['1']), item('d', false, ['1'])];
+    const items = [
+      item('a', true, ['1']),
+      item('b', false, ['1']),
+      item('c', true, ['1']),
+      item('d', false, ['1']),
+    ];
 
     expect(orderItems(items).map((i) => i.key)).toEqual(['b', 'd', 'a', 'c']);
   });

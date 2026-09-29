@@ -38,10 +38,10 @@ export interface ColorPalette {
   warning: string;
   /** Botões flutuantes sobre fotos (favoritar). */
   overlay: string;
-  /** Toast escuro e superfícies de contraste invertido. */
-  inverseSurface: string;
-  inverseText: string;
-  inversePrimary: string;
+  /** Toast: acompanha o tema (claro no tema claro, escuro no tema escuro). */
+  toastSurface: string;
+  onToast: string;
+  toastAction: string;
   /** Véu escuro atrás de diálogos e gavetas. */
   scrim: string;
 }
@@ -69,9 +69,9 @@ export const lightColors: ColorPalette = {
   onErrorContainer: '#93000A',
   warning: '#784800',
   overlay: 'rgba(255, 255, 255, 0.92)',
-  inverseSurface: '#1D1F27',
-  inverseText: '#F0F0F7',
-  inversePrimary: '#CFBCFF',
+  toastSurface: '#E3E2E9',
+  onToast: '#1D1F27',
+  toastAction: '#5E37BB',
   scrim: 'rgba(25, 28, 31, 0.45)',
 };
 
@@ -99,9 +99,9 @@ export const darkColors: ColorPalette = {
   onErrorContainer: '#FFDAD6',
   warning: '#FFB95C',
   overlay: 'rgba(28, 30, 36, 0.92)',
-  inverseSurface: '#E3E2E9',
-  inverseText: '#1D1F27',
-  inversePrimary: '#5E37BB',
+  toastSurface: '#1D1F27',
+  onToast: '#F0F0F7',
+  toastAction: '#CFBCFF',
   scrim: 'rgba(0, 0, 0, 0.6)',
 };
 

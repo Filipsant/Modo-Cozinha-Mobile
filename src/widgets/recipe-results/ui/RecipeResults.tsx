@@ -12,7 +12,6 @@ export interface RecipeResultsProps {
   isError: boolean;
   onRetry: () => void;
   onOpenRecipe: (id: string) => void;
-  onCookRecipe?: (id: string) => void;
   /** Conteúdo acima da lista (busca, filtros, título), que rola junto com os cards. */
   header?: ReactElement;
   /** Textos do estado vazio, que mudam conforme a tela. */
@@ -37,7 +36,6 @@ export function RecipeResults({
   isError,
   onRetry,
   onOpenRecipe,
-  onCookRecipe,
   header,
   empty,
   refreshing = false,
@@ -49,7 +47,10 @@ export function RecipeResults({
   const renderState = () => {
     if (isPending) {
       return (
-        <View accessibilityLabel="Carregando receitas" style={{ gap: spacing.md, paddingHorizontal: spacing.md }}>
+        <View
+          accessibilityLabel="Carregando receitas"
+          style={{ gap: spacing.md, paddingHorizontal: spacing.md }}
+        >
           {Array.from({ length: SKELETON_COUNT }, (_, index) => (
             <SkeletonCard key={index} />
           ))}
@@ -85,12 +86,7 @@ export function RecipeResults({
       ItemSeparatorComponent={Separator}
       renderItem={({ item }) => (
         <View style={{ paddingHorizontal: spacing.md }}>
-          <RecipeCard
-            recipe={item}
-            onOpen={onOpenRecipe}
-            onCook={onCookRecipe}
-            actions={<FavoriteButton recipe={item} />}
-          />
+          <RecipeCard recipe={item} onOpen={onOpenRecipe} actions={<FavoriteButton recipe={item} />} />
         </View>
       )}
       contentContainerStyle={[styles.content, { paddingBottom: spacing.lg + bottomInset }]}

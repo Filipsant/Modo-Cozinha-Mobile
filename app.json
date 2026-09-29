@@ -24,12 +24,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      "expo-image",
-      "expo-font",
-      "expo-splash-screen",
-      "expo-audio"
-    ]
+    "plugins": ["expo-router", "expo-image", "expo-font", "expo-splash-screen", "expo-audio"]
   }
 }

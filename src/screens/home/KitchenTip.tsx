@@ -17,7 +17,14 @@ export function KitchenTip({ onClose }: KitchenTipProps) {
       style={[
         styles.card,
         shadows.floating,
-        { backgroundColor: colors.surface, borderRadius: radius.xl, padding: 12, gap: 10, right: spacing.md, bottom: spacing.md },
+        {
+          backgroundColor: colors.surface,
+          borderRadius: radius.xl,
+          padding: 12,
+          gap: 10,
+          right: spacing.md,
+          bottom: spacing.md,
+        },
       ]}
     >
       <View style={[styles.icon, { backgroundColor: colors.primaryContainer, borderRadius: radius.full }]}>

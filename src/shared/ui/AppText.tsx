@@ -2,7 +2,7 @@ import { Text, type TextProps } from 'react-native';
 
 import { useTheme, type ColorPalette, type TypographyVariant } from '@/shared/theme';
 
-export type TextTone = 'default' | 'secondary' | 'muted' | 'primary' | 'onPrimary' | 'error' | 'inverse';
+export type TextTone = 'default' | 'secondary' | 'muted' | 'primary' | 'onPrimary' | 'error' | 'onToast';
 
 const TONE_COLOR: Record<TextTone, keyof ColorPalette> = {
   default: 'text',
@@ -11,7 +11,7 @@ const TONE_COLOR: Record<TextTone, keyof ColorPalette> = {
   primary: 'primaryStrong',
   onPrimary: 'onPrimary',
   error: 'error',
-  inverse: 'inverseText',
+  onToast: 'onToast',
 };
 
 export interface AppTextProps extends TextProps {

@@ -7,8 +7,14 @@ describe('resolveQuery', () => {
       { term: 'chicken', category: null, country: null },
       { kind: 'search', term: 'chicken', category: null, country: null },
     ],
-    [{ term: '', category: 'Seafood', country: null }, { kind: 'category', category: 'Seafood' }],
-    [{ term: '', category: null, country: 'Italy' }, { kind: 'country', country: 'Italy' }],
+    [
+      { term: '', category: 'Seafood', country: null },
+      { kind: 'category', category: 'Seafood' },
+    ],
+    [
+      { term: '', category: null, country: 'Italy' },
+      { kind: 'country', country: 'Italy' },
+    ],
     [
       { term: '', category: 'Seafood', country: 'Italy' },
       { kind: 'category-and-country', category: 'Seafood', country: 'Italy' },

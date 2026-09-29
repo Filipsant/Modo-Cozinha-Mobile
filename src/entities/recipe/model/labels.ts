@@ -25,7 +25,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
 /**
  * Origens do filtro, por país. A lista de origens da API (list.php?a=list) devolve adjetivos
  * ("Brazilian") que o filter.php não entende mais; ele filtra pelo país ("Brazil").
- * Por isso a lista é curada: as 5 do Figma primeiro e depois as com mais receitas. Veja o ADR 006.
+ * Por isso a lista é curada: as 5 do Figma primeiro e depois as com mais receitas. Veja o ADR 009.
  */
 export const ORIGINS: Origin[] = [
   { country: 'Italy', label: 'Italiana', flag: '🇮🇹' },

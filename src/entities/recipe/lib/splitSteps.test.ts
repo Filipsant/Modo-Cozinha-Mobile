@@ -2,7 +2,8 @@ import { fixtures } from '@/shared/testing';
 
 import { splitSteps } from './splitSteps';
 
-const instructionsOf = (response: { meals: { strInstructions: string }[] }) => response.meals[0]?.strInstructions ?? '';
+const instructionsOf = (response: { meals: { strInstructions: string }[] }) =>
+  response.meals[0]?.strInstructions ?? '';
 
 describe('splitSteps', () => {
   it('divide por quebra de linha (receita real com \\r\\n)', () => {

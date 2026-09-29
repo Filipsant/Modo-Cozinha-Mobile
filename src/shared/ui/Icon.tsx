@@ -1,11 +1,13 @@
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { Image } from 'expo-image';
+import type { ColorValue } from 'react-native';
 
 import { ICONS, type IconName } from './icons/registry';
 
 export interface IconProps {
   name: IconName;
-  color: string;
+  /** As cores do tema são strings; ColorValue permite receber a cor da barra de abas direto. */
+  color: ColorValue;
   /** Multiplica o tamanho do design (ex.: 1.4 no modo cozinha). */
   scale?: number;
 }
@@ -32,7 +34,7 @@ export function Icon({ name, color, scale = 1 }: IconProps) {
   return (
     <Image
       source={icon.source}
-      tintColor={color}
+      tintColor={typeof color === 'string' ? color : null}
       contentFit="contain"
       style={{ width: icon.width * scale, height: icon.height * scale }}
       accessible={false}

@@ -24,7 +24,10 @@ export interface ButtonProps {
   style?: StyleProp<ViewStyle>;
 }
 
-const VARIANT_COLORS: Record<ButtonVariant, { background: keyof ColorPalette | null; text: keyof ColorPalette }> = {
+const VARIANT_COLORS: Record<
+  ButtonVariant,
+  { background: keyof ColorPalette | null; text: keyof ColorPalette }
+> = {
   primary: { background: 'primary', text: 'onPrimary' },
   tonal: { background: 'primaryContainer', text: 'onPrimaryContainer' },
   neutral: { background: 'surfaceVariant', text: 'textSecondary' },
@@ -49,7 +52,8 @@ export function Button({
   const { colors, spacing, radius, shadows, scheme } = useTheme();
   const palette = VARIANT_COLORS[variant];
   const isInactive = disabled || loading;
-  const textColor = variant === 'danger' && scheme === 'dark' ? colors.onErrorContainer : colors[palette.text];
+  const textColor =
+    variant === 'danger' && scheme === 'dark' ? colors.onErrorContainer : colors[palette.text];
   const backgroundColor =
     variant === 'danger' && scheme === 'dark'
       ? colors.errorContainer

@@ -9,7 +9,7 @@ export function roundMetric(value: number): number {
 
 /**
  * oz e lb viram gramas; cup, tbsp, tsp, fl oz, pint e quart viram mililitros.
- * Xícaras não viram gramas, porque isso depende da densidade de cada ingrediente (ADR 007).
+ * Xícaras não viram gramas, porque isso depende da densidade de cada ingrediente (ADR 006).
  */
 export function toMetric(measure: ParsedMeasure): ParsedMeasure {
   const conversion = measure.unit ? METRIC_CONVERSIONS[measure.unit] : undefined;

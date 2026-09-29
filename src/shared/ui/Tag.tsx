@@ -22,7 +22,11 @@ export function Tag({ label, tone = 'neutral' }: TagProps) {
         { borderRadius: radius.sm, backgroundColor: isPrimary ? colors.tag : colors.surfaceVariant },
       ]}
     >
-      <AppText variant="caption" style={{ color: isPrimary ? colors.onTag : colors.textSecondary }} numberOfLines={1}>
+      <AppText
+        variant="caption"
+        style={{ color: isPrimary ? colors.onTag : colors.textSecondary }}
+        numberOfLines={1}
+      >
         {label}
       </AppText>
     </View>

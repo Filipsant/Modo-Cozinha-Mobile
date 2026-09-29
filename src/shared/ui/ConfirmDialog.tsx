@@ -45,7 +45,12 @@ export function ConfirmDialog({
           style={[
             styles.card,
             shadows.floating,
-            { backgroundColor: colors.surface, borderRadius: radius.lg, padding: spacing.lg, gap: spacing.md },
+            {
+              backgroundColor: colors.surface,
+              borderRadius: radius.lg,
+              padding: spacing.lg,
+              gap: spacing.md,
+            },
           ]}
         >
           <View style={[styles.titleRow, { gap: spacing.sm }]}>

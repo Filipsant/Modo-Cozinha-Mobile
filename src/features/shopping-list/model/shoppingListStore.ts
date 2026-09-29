@@ -24,7 +24,8 @@ export const useShoppingListStore = create<ShoppingListState>()(
     (set) => ({
       items: [],
 
-      addRecipe: (recipe, factor) => set((state) => ({ items: addRecipeToList(state.items, recipe, factor) })),
+      addRecipe: (recipe, factor) =>
+        set((state) => ({ items: addRecipeToList(state.items, recipe, factor) })),
 
       toggleChecked: (key) =>
         set((state) => ({

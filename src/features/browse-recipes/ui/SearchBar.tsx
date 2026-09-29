@@ -5,13 +5,13 @@ export interface SearchBarProps {
   onChangeTerm: (term: string) => void;
 }
 
-/** As receitas da TheMealDB estão em inglês, então o exemplo do placeholder também está. */
+/** Busca pelo nome da receita, em português ou inglês (o termo é traduzido antes de ir para a API). */
 export function SearchBar({ term, onChangeTerm }: SearchBarProps) {
   return (
     <SearchInput
       value={term}
       onChangeText={onChangeTerm}
-      placeholder="Buscar receitas, ex.: chicken"
+      placeholder="Buscar receitas, ex.: frango"
       accessibilityLabel="Buscar receitas pelo nome"
     />
   );

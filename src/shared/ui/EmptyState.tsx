@@ -16,14 +16,25 @@ export interface EmptyStateProps {
 }
 
 /** Estado vazio do design system: ícone, título, texto e uma ação opcional. */
-export function EmptyState({ title, description, icon = 'searchOff', actionLabel, onAction }: EmptyStateProps) {
+export function EmptyState({
+  title,
+  description,
+  icon = 'searchOff',
+  actionLabel,
+  onAction,
+}: EmptyStateProps) {
   const { colors, spacing, radius } = useTheme();
 
   return (
     <View
       style={[
         styles.container,
-        { backgroundColor: colors.surfaceMuted, borderRadius: radius.xl, padding: spacing.lg, gap: spacing.sm },
+        {
+          backgroundColor: colors.surfaceMuted,
+          borderRadius: radius.xl,
+          padding: spacing.lg,
+          gap: spacing.sm,
+        },
       ]}
     >
       <View style={[styles.icon, { backgroundColor: colors.surface, borderRadius: radius.full }]}>
@@ -36,7 +47,13 @@ export function EmptyState({ title, description, icon = 'searchOff', actionLabel
         {description}
       </AppText>
       {actionLabel && onAction ? (
-        <Button label={actionLabel} onPress={onAction} variant="neutral" size="sm" style={{ marginTop: spacing.sm }} />
+        <Button
+          label={actionLabel}
+          onPress={onAction}
+          variant="neutral"
+          size="sm"
+          style={{ marginTop: spacing.sm }}
+        />
       ) : null}
     </View>
   );

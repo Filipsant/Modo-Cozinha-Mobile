@@ -53,7 +53,7 @@ export const UNIT_SYNONYMS: Record<string, Unit> = {
   qt: 'quart',
 };
 
-/** Unidades imperiais e a conversão para o sistema métrico (volume vira ml: veja o ADR 007). */
+/** Unidades imperiais e a conversão para o sistema métrico (volume vira ml: veja o ADR 006). */
 export const METRIC_CONVERSIONS: Partial<Record<Unit, { unit: 'g' | 'ml'; factor: number }>> = {
   oz: { unit: 'g', factor: 28.3495 },
   lb: { unit: 'g', factor: 453.592 },

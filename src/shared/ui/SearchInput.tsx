@@ -14,11 +14,19 @@ export interface SearchInputProps {
 }
 
 /** Campo de busca do Figma: cartão branco de 48 px, lupa à esquerda e botão de limpar à direita. */
-export function SearchInput({ value, onChangeText, placeholder, accessibilityLabel, onSubmit }: SearchInputProps) {
+export function SearchInput({
+  value,
+  onChangeText,
+  placeholder,
+  accessibilityLabel,
+  onSubmit,
+}: SearchInputProps) {
   const { colors, radius, shadows, typography } = useTheme();
 
   return (
-    <View style={[styles.container, shadows.card, { backgroundColor: colors.surface, borderRadius: radius.lg }]}>
+    <View
+      style={[styles.container, shadows.card, { backgroundColor: colors.surface, borderRadius: radius.lg }]}
+    >
       <Icon name="search" color={colors.textMuted} />
       <TextInput
         value={value}

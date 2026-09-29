@@ -35,7 +35,9 @@ export function useRecipeResults({ term, category, country }: BrowseParams): Rec
 
   const featured = useQuery({ ...recipeQueries.featured(), enabled: isFeatured });
   const browse = useQuery({
-    ...browseQueries.results(strategy.kind === 'featured' ? { kind: 'search', term: '', category, country } : strategy),
+    ...browseQueries.results(
+      strategy.kind === 'featured' ? { kind: 'search', term: '', category, country } : strategy,
+    ),
     enabled: !isFeatured,
   });
 

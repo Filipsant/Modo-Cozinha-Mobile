@@ -44,7 +44,11 @@ export function ShoppingItemRow({ item, onToggle, onRemove }: ShoppingItemRowPro
           >
             {item.name}
           </AppText>
-          <AppText variant="small" tone={item.checked ? 'muted' : 'secondary'} style={item.checked && styles.done}>
+          <AppText
+            variant="small"
+            tone={item.checked ? 'muted' : 'secondary'}
+            style={item.checked && styles.done}
+          >
             {amount}
           </AppText>
         </View>

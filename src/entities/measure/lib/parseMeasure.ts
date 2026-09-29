@@ -45,7 +45,8 @@ const SLASH_EQUIVALENT = new RegExp(
   'i',
 );
 /** Equivalência entre parênteses: "(340g)", "(360 milliliters)", "(55 grams)". */
-const PARENTHESIS_EQUIVALENT = /^\(\s*[\d.,]+\s*(?:g|grams?|ml|milliliters?|millilitres?|oz\.?|ounces?)\s*\)/i;
+const PARENTHESIS_EQUIVALENT =
+  /^\(\s*[\d.,]+\s*(?:g|grams?|ml|milliliters?|millilitres?|oz\.?|ounces?)\s*\)/i;
 
 function readNumber(text: string): { value: number; length: number } | null {
   for (const { pattern, read } of NUMBER_PATTERNS) {

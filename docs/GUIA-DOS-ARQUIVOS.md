@@ -72,20 +72,19 @@ A tela é o **maestro**: não toca nenhum instrumento, só diz quem entra e quan
 
 A tela **não** faz cálculos nem busca dados na internet por conta própria. Se passar de umas 150 linhas, divida.
 
-| Tela             | Hoje                                    | Vai ganhar                                         | Etapa |
-| ---------------- | --------------------------------------- | -------------------------------------------------- | ----- |
-| Início           | Título e um link de teste               | Busca, filtros, lista de receitas, "Surpreenda-me" | 2 e 3 |
-| Detalhe          | Mostra o número da receita e as porções | Foto, ingredientes, favoritar, porções, medidas    | 2 a 6 |
-| Modo cozinha     | Tela cheia com botão Sair               | Passo a passo, timers, tela sempre ligada          | 5     |
-| Favoritos        | Título                                  | Lista dos favoritos, ordenar, desfazer             | 3     |
-| Lista de compras | Título                                  | Itens somados, marcar comprado, compartilhar       | 6     |
-| Não encontrada   | Mensagem e link para o início           | Nada, já está pronta                               | —     |
+| Tela             | O que tem                                                                      | Etapa |
+| ---------------- | ------------------------------------------------------------------------------ | ----- |
+| Início           | Busca, categorias, origens, sugestões, "Surpreenda-me", tema e dica            | 2 e 3 |
+| Detalhe          | Foto, ingredientes, preparo, favoritar, porções, medidas e "Adicionar à lista" | 2 a 6 |
+| Modo cozinha     | Passo a passo em tela cheia, gestos, timers, tela sempre ligada                | 5     |
+| Favoritos        | Lista dos favoritos, ordenar, desfazer                                         | 3     |
+| Lista de compras | Itens somados, marcar comprado, agrupar por receita, compartilhar              | 6     |
+| Não encontrada   | Mensagem e botão para o início                                                 | —     |
 
 ### `src/widgets`: blocos grandes
 
-Um widget junta várias peças e aparece em mais de uma tela. O primeiro será a **lista de receitas** (Etapa 2): mostra
-os cards com foto, o botão de favoritar e os avisos de carregando, erro e "nenhuma receita encontrada". O widget
-recebe os dados prontos da tela; ele não busca nada sozinho.
+Um widget junta várias peças. O **`recipe-results`** mostra os cards com foto e o botão de favoritar, e os avisos
+de carregando, erro e "nenhuma receita encontrada". Ele recebe os dados prontos da tela; não busca nada sozinho.
 
 ### `src/features`: o que o usuário faz
 

@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 import { mealdbClient } from '@/entities/recipe';
 import { useBrowseParams, useRecipeResults, type BrowseStrategy } from '@/features/browse-recipes';
-import { BASE_SERVINGS } from '@/shared/config';
 import { Screen, showToast } from '@/shared/ui';
 import { RecipeResults } from '@/widgets/recipe-results';
 
@@ -29,8 +28,6 @@ export function HomeScreen() {
   const sectionMeta = count === undefined ? undefined : `${count} ${count === 1 ? noun[0] : noun[1]}`;
 
   const openRecipe = (id: string) => router.push({ pathname: '/receita/[id]', params: { id } });
-  const cookRecipe = (id: string) =>
-    router.push({ pathname: '/receita/[id]/cozinhar', params: { id, porcoes: String(BASE_SERVINGS) } });
 
   // A receita aleatória não usa cache: cada toque deve trazer uma diferente.
   const surprise = async () => {
@@ -62,7 +59,6 @@ export function HomeScreen() {
         isError={results.isError}
         onRetry={results.refetch}
         onOpenRecipe={openRecipe}
-        onCookRecipe={cookRecipe}
         refreshing={results.isRefetching}
         onRefresh={results.refetch}
         bottomInset={showTip ? 96 : 0}
@@ -70,7 +66,8 @@ export function HomeScreen() {
           results.strategy.kind === 'search'
             ? {
                 title: 'Nenhuma receita encontrada',
-                description: 'As receitas estão em inglês: tente termos como chicken, pasta ou cake.',
+                description:
+                  'Tente outro nome de prato ou ingrediente principal, como frango, massa ou bolo.',
                 actionLabel: 'Limpar busca e filtros',
                 onAction: browse.clearAll,
               }

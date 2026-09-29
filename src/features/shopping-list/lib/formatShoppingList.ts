@@ -44,7 +44,8 @@ export function formatShoppingList(items: ShoppingItem[]): string {
 
   const sections = ['Lista de compras (Modo Cozinha)'];
   if (pending.length > 0) sections.push(pending.map((item) => `☐ ${line(item)}`).join('\n'));
-  if (checked.length > 0) sections.push(`Já comprados:\n${checked.map((item) => `☑ ${line(item)}`).join('\n')}`);
+  if (checked.length > 0)
+    sections.push(`Já comprados:\n${checked.map((item) => `☑ ${line(item)}`).join('\n')}`);
   if (items.length === 0) sections.push('A lista está vazia.');
 
   return sections.join('\n\n');

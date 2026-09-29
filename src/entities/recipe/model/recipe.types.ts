@@ -1,6 +1,9 @@
 export interface Ingredient {
   name: string;
-  /** Texto livre da API, ex.: "1/2 cup". A entity measure transforma em número e unidade. */
+  /**
+   * Texto livre da API, ex.: "1/2 cup". A entity measure transforma em número e unidade.
+   * Na receita traduzida, número e unidade continuam como a API manda e só o resto muda ("2 dentes").
+   */
   measure: string;
 }
 
@@ -26,6 +29,8 @@ export interface Recipe extends RecipeSummary {
   ingredients: Ingredient[];
   ingredientCount: number;
   youtubeUrl: string | null;
+  /** false quando a tradução falhou e a receita aparece em inglês, como veio da API. */
+  isTranslated?: boolean;
 }
 
 /** Uma origem culinária do filtro: o país que a API entende, o nome em português e a bandeira. */

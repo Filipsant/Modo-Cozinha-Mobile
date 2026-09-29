@@ -8,6 +8,9 @@ import { AppText } from './AppText';
 import { Icon } from './Icon';
 import { IconButton } from './IconButton';
 
+/** Altura do cabeçalho, sem contar a área do relógio e da bateria. O toast aparece logo abaixo dela. */
+export const APP_BAR_HEIGHT = 64;
+
 export interface AppBarProps {
   title: string;
   /** Com onBack, a seta de voltar substitui o logo. */
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   row: {
-    height: 64,
+    height: APP_BAR_HEIGHT,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

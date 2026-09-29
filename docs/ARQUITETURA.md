@@ -136,7 +136,7 @@ Detalhes do mobile:
 
 ## 6. Estrutura de pastas
 
-Hoje existem só as camadas, as telas vazias e o `shared` básico. Cada módulo nasce na etapa em que é usado.
+Todas as camadas e módulos do escopo existem. Cada pasta de camada tem um `README.md` com os módulos dela.
 
 ```
 modo-cozinha-mobile/
@@ -145,21 +145,24 @@ modo-cozinha-mobile/
 ├── assets/                      ícone e splash
 ├── docs/
 │   ├── ARQUITETURA.md           este arquivo
-│   └── decisions/               registros de decisão (ADRs)
+│   └── decisions/               registros de decisão (ADRs 001 a 010)
+├── scripts/                     coleta das medidas reais da API e geração do som do alarme
 ├── src/
-│   ├── app/                     rotas do Expo Router + _layout com providers
+│   ├── app/                     rotas do Expo Router + _layout com fonte, tema, providers e toast
 │   ├── screens/                 home, recipe-details, cooking-mode, favorites, shopping-list, not-found
-│   ├── widgets/                 (Etapa 2: recipe-results)
-│   ├── features/                (Etapas 2 a 7)
-│   ├── entities/                (Etapa 2: recipe; Etapa 4: measure)
+│   ├── widgets/                 recipe-results
+│   ├── features/                browse-recipes, favorite-recipe, adjust-measures, cooking-steps,
+│   │                            kitchen-timers, screen-wake-lock, shopping-list, theme-switcher
+│   ├── entities/                recipe, measure
 │   └── shared/
-│       ├── api/                 createQueryClient, useRefetchOnAppFocus
+│       ├── api/                 fetchJson, HttpError, createQueryClient, useRefetchOnAppFocus
 │       ├── config/              API_BASE_URL, BASE_SERVINGS, limites
-│       ├── lib/                 persistStorage, storageKey
-│       ├── theme/               cores claro e escuro, espaçamentos, fontes, useTheme
-│       ├── ui/                  Screen, Title, Paragraph
-│       └── testing/             setupTests, renderWithProviders, MSW, fixtures
+│       ├── lib/                 clamp, persistStorage, useDebounce, useNow, useReduceMotion
+│       ├── theme/               tokens do Figma (claro e escuro), tipografia, useTheme, useAppFonts
+│       ├── ui/                  componentes do design system e ícones do Figma
+│       └── testing/             setupTests, renderRouterWithProviders, MSW, fixtures reais
 ├── app.json                     nome, scheme de deep link, tema automático, plugins
+├── declarations.d.ts            tipos para importar .svg e .wav
 ├── eslint.config.js             regras de camadas
 ├── jest.config.js               preset jest-expo + ajustes para o MSW
 └── tsconfig.json                strict, alias @/ e tipos do Jest

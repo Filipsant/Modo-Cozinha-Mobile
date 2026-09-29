@@ -53,7 +53,9 @@ describe('mapMealToRecipe', () => {
   });
 
   it('usa a origem antiga quando o país não vem e tira espaços do nome', () => {
-    const recipe = mapMealToRecipe(mealDtoSchema.parse({ ...baseMeal, strArea: 'Italian', strCountry: null }));
+    const recipe = mapMealToRecipe(
+      mealDtoSchema.parse({ ...baseMeal, strArea: 'Italian', strCountry: null }),
+    );
 
     expect(recipe.area).toBe('Italian');
     expect(recipe.name).toBe('Teste');

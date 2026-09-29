@@ -27,7 +27,9 @@ export function formatQuantity(value: number): string {
   if (fraction < TOLERANCE) return String(whole);
   if (fraction > 1 - TOLERANCE) return String(whole + 1);
 
-  const friendly = FRIENDLY_FRACTIONS.find(([fractionValue]) => Math.abs(fraction - fractionValue) < TOLERANCE);
+  const friendly = FRIENDLY_FRACTIONS.find(
+    ([fractionValue]) => Math.abs(fraction - fractionValue) < TOLERANCE,
+  );
   if (friendly) return whole === 0 ? friendly[1] : `${whole}${friendly[1]}`;
 
   return formatDecimal(value);

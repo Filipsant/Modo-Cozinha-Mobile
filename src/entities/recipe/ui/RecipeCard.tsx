@@ -10,9 +10,8 @@ import type { RecipeSummary } from '../model/recipe.types';
 
 export interface RecipeCardProps {
   recipe: RecipeSummary;
+  /** Abre a página da receita: pelo card, pelo botão "Modo Cozinha" e pelo botão "…". */
   onOpen: (id: string) => void;
-  /** Sem onCook, o botão "Modo Cozinha" não aparece. */
-  onCook?: (id: string) => void;
   /** Ações de outras features (ex.: botão de favorito), recebidas prontas. O card não as conhece. */
   actions?: ReactNode;
 }
@@ -20,7 +19,7 @@ export interface RecipeCardProps {
 const IMAGE_HEIGHT = 176;
 
 /** Card de receita do Figma (Início, node 1:742). */
-export function RecipeCard({ recipe, onOpen, onCook, actions }: RecipeCardProps) {
+export function RecipeCard({ recipe, onOpen, actions }: RecipeCardProps) {
   const { colors, spacing, radius, shadows } = useTheme();
 
   return (
@@ -38,7 +37,7 @@ export function RecipeCard({ recipe, onOpen, onCook, actions }: RecipeCardProps)
           transition={200}
           accessible={false}
         />
-        <View style={{ padding: spacing.md, paddingBottom: onCook ? 0 : spacing.md, gap: spacing.sm }}>
+        <View style={{ padding: spacing.md, paddingBottom: 0, gap: spacing.sm }}>
           <View style={[styles.metaRow, { gap: spacing.sm }]}>
             {recipe.area ? <Tag label={translateOrigin(recipe.area)} tone="primary" /> : null}
             {recipe.category ? <Tag label={translateCategory(recipe.category)} /> : null}
@@ -54,24 +53,23 @@ export function RecipeCard({ recipe, onOpen, onCook, actions }: RecipeCardProps)
         </View>
       </Pressable>
 
-      {onCook ? (
-        <View style={[styles.buttons, { padding: spacing.md, paddingTop: spacing.md, gap: spacing.sm }]}>
-          <Button
-            label="Modo Cozinha"
-            icon="skillet"
-            onPress={() => onCook(recipe.id)}
-            accessibilityLabel={`Cozinhar ${recipe.name} no modo cozinha`}
-            style={styles.cook}
-          />
-          <IconButton
-            icon="moreHoriz"
-            variant="neutral"
-            size="lg"
-            accessibilityLabel="Ver detalhes da receita"
-            onPress={() => onOpen(recipe.id)}
-          />
-        </View>
-      ) : null}
+      {/* O "Modo Cozinha" do card leva à receita: lá a pessoa escolhe as porções antes de cozinhar. */}
+      <View style={[styles.buttons, { padding: spacing.md, gap: spacing.sm }]}>
+        <Button
+          label="Modo Cozinha"
+          icon="skillet"
+          onPress={() => onOpen(recipe.id)}
+          accessibilityLabel={`Modo Cozinha: abrir a receita ${recipe.name}`}
+          style={styles.cook}
+        />
+        <IconButton
+          icon="moreHoriz"
+          variant="neutral"
+          size="lg"
+          accessibilityLabel="Ver detalhes da receita"
+          onPress={() => onOpen(recipe.id)}
+        />
+      </View>
 
       {actions ? <View style={[styles.actions, { top: 12, right: 12 }]}>{actions}</View> : null}
     </View>

@@ -4,14 +4,21 @@ import { FEATURED_RECIPES_COUNT } from '@/shared/config';
 
 import type { Recipe } from '../model/recipe.types';
 import { mealdbClient } from './mealdbClient';
+import { translateRecipeNames, translateRecipeOrKeep } from './recipe.translation';
 
 const THIRTY_MINUTES = 30 * 60 * 1000;
 
-/** Sorteia receitas diferentes para a seção "Receitas em Destaque". */
+/** Sorteia receitas diferentes para a seção "Receitas em Destaque", com os nomes em português. */
 async function fetchFeatured(count: number, signal?: AbortSignal): Promise<Recipe[]> {
   const recipes = await Promise.all(Array.from({ length: count }, () => mealdbClient.getRandom(signal)));
   const unique = new Map(recipes.map((recipe) => [recipe.id, recipe]));
-  return [...unique.values()];
+  return translateRecipeNames([...unique.values()], signal);
+}
+
+/** A receita completa, já traduzida (ou em inglês, com isTranslated: false, se a tradução falhar). */
+async function fetchDetail(id: string, signal?: AbortSignal): Promise<Recipe | null> {
+  const recipe = await mealdbClient.getById(id, signal);
+  return recipe ? translateRecipeOrKeep(recipe, signal) : null;
 }
 
 /**
@@ -22,7 +29,7 @@ export const recipeQueries = {
   detail: (id: string) =>
     queryOptions({
       queryKey: ['recipes', 'detail', id],
-      queryFn: ({ signal }) => mealdbClient.getById(id, signal),
+      queryFn: ({ signal }) => fetchDetail(id, signal),
       staleTime: THIRTY_MINUTES,
     }),
 

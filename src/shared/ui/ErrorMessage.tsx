@@ -18,7 +18,12 @@ export function ErrorMessage({ title, description, onRetry }: ErrorMessageProps)
   return (
     <View
       accessibilityRole="alert"
-      style={{ backgroundColor: colors.errorContainer, borderRadius: radius.lg, padding: spacing.md, gap: spacing.md }}
+      style={{
+        backgroundColor: colors.errorContainer,
+        borderRadius: radius.lg,
+        padding: spacing.md,
+        gap: spacing.md,
+      }}
     >
       <View style={[styles.row, { gap: 12 }]}>
         <Icon name="cloudOff" color={colors.onErrorContainer} />

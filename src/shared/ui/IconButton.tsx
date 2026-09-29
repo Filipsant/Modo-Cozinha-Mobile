@@ -25,7 +25,10 @@ export interface IconButtonProps {
   style?: StyleProp<ViewStyle>;
 }
 
-const VARIANT_COLORS: Record<IconButtonVariant, { background: keyof ColorPalette | null; icon: keyof ColorPalette }> = {
+const VARIANT_COLORS: Record<
+  IconButtonVariant,
+  { background: keyof ColorPalette | null; icon: keyof ColorPalette }
+> = {
   plain: { background: null, icon: 'textSecondary' },
   neutral: { background: 'surfaceVariant', icon: 'textSecondary' },
   tonal: { background: 'primaryContainer', icon: 'onPrimaryContainer' },
