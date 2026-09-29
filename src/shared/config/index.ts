@@ -8,5 +8,8 @@ export const MAX_SERVINGS = 20;
 
 export const SEARCH_DEBOUNCE_MS = 400;
 
+/** Quantas sugestões aparecem em "Receitas em Destaque" antes de buscar (o Figma mostra 3). */
+export const FEATURED_RECIPES_COUNT = 3;
+
 /** Prefixo obrigatório das chaves dos stores persistidos. */
 export const STORAGE_PREFIX = 'modo-cozinha:';

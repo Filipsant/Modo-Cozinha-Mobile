@@ -8,18 +8,25 @@ export interface ScreenProps {
   children: ReactNode;
   /**
    * Bordas que precisam desviar do notch e das barras do sistema.
-   * Telas com cabeçalho nativo não precisam; as abas precisam de 'top'; o modo cozinha, em tela cheia, de todas.
+   * Telas com cabeçalho (abas e detalhe) não precisam; o modo cozinha, em tela cheia, precisa de todas.
    */
   edges?: Edge[];
+  /** Espaçamento interno de 16. Desligue quando a tela tiver uma lista que rola até a borda. */
+  padded?: boolean;
 }
 
-export function Screen({ children, edges = [] }: ScreenProps) {
+/** O "fundo" de toda tela: cor do tema e área segura. */
+export function Screen({ children, edges = [], padded = true }: ScreenProps) {
   const { colors, spacing } = useTheme();
 
   return (
     <SafeAreaView
       edges={edges}
-      style={[styles.container, { backgroundColor: colors.background, padding: spacing.md, gap: spacing.md }]}
+      style={[
+        styles.container,
+        { backgroundColor: colors.background },
+        padded && { padding: spacing.md, gap: spacing.md },
+      ]}
     >
       {children}
     </SafeAreaView>

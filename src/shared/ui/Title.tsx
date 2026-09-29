@@ -1,25 +1,22 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, Text } from 'react-native';
+import type { StyleProp, TextStyle } from 'react-native';
 
-import { useTheme } from '@/shared/theme';
+import type { TypographyVariant } from '@/shared/theme';
+
+import { AppText } from './AppText';
 
 export interface TitleProps {
   children: ReactNode;
+  /** "title" (24) para o título da tela; "headline" (20) para seções e cards. */
+  variant?: Extract<TypographyVariant, 'display' | 'title' | 'headline'>;
+  style?: StyleProp<TextStyle>;
 }
 
-/** Título da tela. accessibilityRole="header" faz o TalkBack e o VoiceOver o anunciarem como título. */
-export function Title({ children }: TitleProps) {
-  const { colors, fontSize } = useTheme();
-
+/** Título. accessibilityRole="header" faz o TalkBack e o VoiceOver o anunciarem como título. */
+export function Title({ children, variant = 'title', style }: TitleProps) {
   return (
-    <Text accessibilityRole="header" style={[styles.title, { color: colors.text, fontSize: fontSize.xxl }]}>
+    <AppText accessibilityRole="header" variant={variant} style={style}>
       {children}
-    </Text>
+    </AppText>
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontWeight: '700',
-  },
-});

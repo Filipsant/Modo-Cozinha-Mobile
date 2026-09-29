@@ -1,14 +1,16 @@
 import type { ReactNode } from 'react';
-import { Text } from 'react-native';
 
-import { useTheme } from '@/shared/theme';
+import { AppText } from './AppText';
 
 export interface ParagraphProps {
   children: ReactNode;
 }
 
+/** Texto de apoio (14/20, cinza secundário), como "Toques ampliados para mãos ocupadas na bancada." */
 export function Paragraph({ children }: ParagraphProps) {
-  const { colors, fontSize } = useTheme();
-
-  return <Text style={{ color: colors.textSecondary, fontSize: fontSize.md }}>{children}</Text>;
+  return (
+    <AppText variant="small" tone="secondary">
+      {children}
+    </AppText>
+  );
 }

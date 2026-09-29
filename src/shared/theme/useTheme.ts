@@ -1,6 +1,16 @@
 import { useColorScheme } from 'react-native';
 
-import { darkColors, fontSize, lightColors, radius, spacing, type ColorPalette } from './tokens';
+import {
+  darkColors,
+  fontFamily,
+  fontSize,
+  lightColors,
+  radius,
+  shadows,
+  spacing,
+  typography,
+  type ColorPalette,
+} from './tokens';
 
 export interface Theme {
   scheme: 'light' | 'dark';
@@ -8,10 +18,13 @@ export interface Theme {
   spacing: typeof spacing;
   radius: typeof radius;
   fontSize: typeof fontSize;
+  fontFamily: typeof fontFamily;
+  typography: typeof typography;
+  shadows: typeof shadows;
 }
 
 /**
- * Tema atual, seguindo o sistema. A feature theme-switcher (Etapa 7) troca o tema
+ * Tema atual, seguindo o sistema. A feature theme-switcher troca o tema
  * chamando Appearance.setColorScheme, então este hook não precisa conhecê-la.
  */
 export function useTheme(): Theme {
@@ -23,5 +36,8 @@ export function useTheme(): Theme {
     spacing,
     radius,
     fontSize,
+    fontFamily,
+    typography,
+    shadows,
   };
 }

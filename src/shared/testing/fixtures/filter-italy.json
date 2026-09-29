@@ -1,0 +1,39 @@
+{
+  "meals": [
+    {
+      "strMeal": "Budino Di Ricotta",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/1549542877.jpg",
+      "idMeal": "52961",
+      "strArea": "Italian",
+      "strCountry": "Italy"
+    },
+    {
+      "strMeal": "Chicken Alfredo Primavera",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/syqypv1486981727.jpg",
+      "idMeal": "52796",
+      "strArea": "Italian",
+      "strCountry": "Italy"
+    },
+    {
+      "strMeal": "Chilli prawn linguine",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/usywpp1511189717.jpg",
+      "idMeal": "52839",
+      "strArea": "Italian",
+      "strCountry": "Italy"
+    },
+    {
+      "strMeal": "Fettuccine Alfredo",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/0jv5gx1661040802.jpg",
+      "idMeal": "53064",
+      "strArea": "Italian",
+      "strCountry": "Italy"
+    },
+    {
+      "strMeal": "Fettucine alfredo",
+      "strMealThumb": "https://www.themealdb.com/images/media/meals/uquqtu1511178042.jpg",
+      "idMeal": "52835",
+      "strArea": "Italian",
+      "strCountry": "Italy"
+    }
+  ]
+}
